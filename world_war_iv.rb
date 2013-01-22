@@ -73,4 +73,32 @@ end
 end
 
 
+# Generates output for minimum fruits to carry for no, of days to survive:
+# "minimum weight: 1"
+# "1 : {\"a\"=>0, \"m\"=>1}"
+# "minimum weight: 1"
+# "2 : {\"a\"=>0, \"pi\"=>1}"
+# "minimum weight: 1"
+# "3 : {\"a\"=>0, \"o\"=>1}"
+# "minimum weight: 1"
+# "4 : {\"a\"=>0, \"pa\"=>1}"
+# "minimum weight: 1"
+# "5 : {\"a\"=>1}"
+# "minimum weight: 2"
+# "6 : {\"a\"=>1, \"m\"=>1}"
+# "minimum weight: 2"
+# "7 : {\"a\"=>1, \"pi\"=>1}"
+# "minimum weight: 2"
+# "8 : {\"a\"=>1, \"o\"=>1}"
+# "minimum weight: 2"
+# "9 : {\"a\"=>1, \"pa\"=>1}"
+# "minimum weight: 2"
+# "10 : {\"a\"=>2}"
+# "minimum weight: 3"
+# "11 : {\"a\"=>2, \"m\"=>1}"
+# "minimum weight: 3"
+# "12 : {\"a\"=>2, \"pi\"=>1}"
+# "minimum weight: 3"
+# "13 : {\"a\"=>2, \"o\"=>1}"
+
 
