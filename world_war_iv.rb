@@ -53,6 +53,7 @@
 
 # * M = Mango , Pi = Pineapple , O = Orange , Pa = Papaya , A = Apple
 
+# Here is O(1) solution
 def min_weight(no_of_days_to_survive=13, fruits=[])
  	fruits = fruits.size == 0 ? ['m','pi','o','pa','a'] : fruits
  	fruits_map = {}
@@ -68,12 +69,16 @@ def min_weight(no_of_days_to_survive=13, fruits=[])
 	optimum_choices
 end
 
+# Examples:
+
+p "#{13} : #{min_weight(13).inspect}"
+# "minimum weight: 3"
+# "13 : {\"a\"=>2, \"o\"=>1}"
+
+
 (1..13).each do |s|
 	p "#{s} : #{min_weight(s).inspect}"
 end
-
-
-# Generates output for minimum fruits to carry for no, of days to survive:
 # "minimum weight: 1"
 # "1 : {\"a\"=>0, \"m\"=>1}"
 # "minimum weight: 1"
