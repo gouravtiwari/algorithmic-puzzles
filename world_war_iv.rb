@@ -96,13 +96,12 @@ def min_weight_for_days_list(no_of_days=[], no_of_days_to_survive)
 	end
 
 	optimum_choices
-
 end
 
 
 # Examples:
 p "#{40} : #{min_weight_for_days_list([1,5,10,20,25], 40).inspect}"
-
+"40 : {\"a\"=>1, \"o\"=>1, \"pi\"=>1}"
 
 p "#{13} : #{min_weight_for_fruits_list(13).inspect}"
 "minimum weight: 3"
