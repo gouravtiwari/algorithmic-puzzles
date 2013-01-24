@@ -53,8 +53,8 @@
 
 # * M = Mango , Pi = Pineapple , O = Orange , Pa = Papaya , A = Apple
 
-# Here is O(1) solution
-def min_weight(no_of_days_to_survive=13, fruits=[])
+# Here is O(1) solution, where fruits is an array and index represents the day which a person can survive after taking the fruit.
+def min_weight_for_fruits_list(no_of_days_to_survive=13, fruits=[])
  	fruits = fruits.size == 0 ? ['m','pi','o','pa','a'] : fruits
  	fruits_map = {}
 
@@ -69,15 +69,48 @@ def min_weight(no_of_days_to_survive=13, fruits=[])
 	optimum_choices
 end
 
-# Examples:
+# Here it is O(n) solution, where input is no of days mapped to fruits(n fruits) and no_of_days_to_survive
+def min_weight_for_days_list(no_of_days=[], no_of_days_to_survive)
 
-p "#{13} : #{min_weight(13).inspect}"
-# "minimum weight: 3"
-# "13 : {\"a\"=>2, \"o\"=>1}"
+	# Assumption is no_of_days[] and fruits[] both will be mapped one-to-one
+	fruits = ['m','pi','o','pa','a']
+	fruits_map = {}
+
+	# performing mapping
+	fruits.each_with_index do |fruit, index| 
+		fruits_map[no_of_days[index]] = fruits[index]
+	end
+	# important mapping and reversing the order(so that is comes in descending order of keys) of the fruit_map
+	fruits_map = Hash[fruits_map.sort.reverse]
+	# fruits_map now a map, e.g. {25=>"a", 20=>"pa", 10=>"o", 5=>"pi", 1=>"m"}
+	
+	optimum_choices = {}
+	
+	fruits_map.each do |days, fruit| # Runs O(n) times
+		no_of_picks = no_of_days_to_survive / days
+		if no_of_picks > 0
+			optimum_choices[fruit] = no_of_picks
+		end
+
+		no_of_days_to_survive = no_of_days_to_survive % days
+	end
+
+	optimum_choices
+
+end
+
+
+# Examples:
+p "#{40} : #{min_weight_for_days_list([1,5,10,20,25], 40).inspect}"
+
+
+p "#{13} : #{min_weight_for_fruits_list(13).inspect}"
+"minimum weight: 3"
+"13 : {\"a\"=>2, \"o\"=>1}"
 
 
 (1..13).each do |s|
-	p "#{s} : #{min_weight(s).inspect}"
+	p "#{s} : #{min_weight_for_fruits_list(s).inspect}"
 end
 # "minimum weight: 1"
 # "1 : {\"a\"=>0, \"m\"=>1}"
