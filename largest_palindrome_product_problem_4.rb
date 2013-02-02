@@ -13,8 +13,8 @@ end
 def largest_palindromic
   palindromic_numbers = {:product => 0}
 
-  (100..999).each do |i|
-  	(100..999).each do |j|
+  (100..999).to_a.reverse.each do |i|
+  	(100..999).to_a.reverse.each do |j|
   		product = i*j
       if(palindromic_numbers[:product] < product && palindromic?(product))
         palindromic_numbers[:product] = product
