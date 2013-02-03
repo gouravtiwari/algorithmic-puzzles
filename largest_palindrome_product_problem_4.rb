@@ -12,19 +12,22 @@ end
 
 def largest_palindromic
   palindromic_numbers = {:product => 0}
-
-  (100..999).to_a.reverse.each do |i|
-  	(100..999).to_a.reverse.each do |j|
-  		product = i*j
+  i = 999
+  while(i > 99)
+    j = i
+    while(j > 99)
+      product = i*j
       if(palindromic_numbers[:product] < product && palindromic?(product))
         palindromic_numbers[:product] = product
         palindromic_numbers[:nums] = [i,j]
       end
-  	end
+      j-=1
+    end
+    i -=1
   end
   palindromic_numbers
 end
 
 t = Time.now
 p largest_palindromic.inspect
-p "#{(Time.now - t)} secs"
+p "#{(Time.now - t)*1000} mili secs"
